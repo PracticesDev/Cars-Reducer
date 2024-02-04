@@ -2,9 +2,10 @@ import { useForm } from "../Hooks/useForm"
 
 export const CarsAdd = ({ onNewCars }) => {
 
-    const { onResetForm,onInputChange, name, placa } = useForm({
+    const { onResetForm,onInputChange, name, gama } = useForm({
+        id: new Date().getTime(), 
         name: '',
-        placa: ''
+        gama: ''
     });
 
 
@@ -16,7 +17,7 @@ export const CarsAdd = ({ onNewCars }) => {
         const newCars = {
             id: new Date().getTime(),
             name,
-            placa
+            gama
         }
 
         onNewCars(newCars);
@@ -40,10 +41,10 @@ export const CarsAdd = ({ onNewCars }) => {
                     <br />
                     <input
                         type="text"
-                        placeholder="Placa Vehiculo"
+                        placeholder="Gama Vehiculo"
                         className="form-control"
-                        name="placa"
-                        value={placa}
+                        name="gama"
+                        value={gama}
                         onChange={onInputChange}
                     />
                 </div>

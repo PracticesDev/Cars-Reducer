@@ -1,7 +1,7 @@
 import { CarsItem } from "./CarsItem"
 
 
-export const CarsList = ({ cars = [] }) => {
+export const CarsList = ({ cars = [], onDeleteCars, onUpdateCars }) => {
 
     return (
         <>
@@ -9,7 +9,12 @@ export const CarsList = ({ cars = [] }) => {
             <ul>
                 {
                     cars.map(carss => (
-                        <CarsItem key={ carss.id } carss={ carss }/>
+                        <CarsItem
+                            key={carss.id}
+                            carss={carss}
+                            onDeleteCars={ id => onDeleteCars(id) }
+                            onUpdateCars={ id => onUpdateCars(id) } 
+                        />
                     ))
                 }
             </ul>
